@@ -1,10 +1,9 @@
 import requests
-from config import TOKEN
 import subprocess
 import yt_dlp
 import os
 
-from config import FULL_DIR
+from src.config import FULL_DIR, TOKEN
 
 def download_music(link, author, track_name):
     ydl_opts = {
@@ -23,18 +22,17 @@ def download_music(link, author, track_name):
 
 def downlad_cover(author, track_name, full_path_to_music):
     # Search for album on Discogs
-    search_url = f"https://api.discogs.com/database/search?q={track_name}&artist={author}&token={TOKEN}"
+    search_url = f"http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist={author}&album={track_name}&api_key={TOKEN}&format=json"
 
     response = requests.get(search_url)
     if response.status_code == 200:
         data = response.json()
 
-        if data['results']:
-            cover_img_link =data['results'][0]['cover_image'] 
+        cover_img_link = data['album']['image'][4]["#text"]
 
-            command = f'wget -O "{full_path_to_music}{author} {track_name}.jpg" {cover_img_link}' 
+        command = f'wget -O "{full_path_to_music}{author} {track_name}.jpg" {cover_img_link}' 
 
-            subprocess.run(command, shell=True)
+        subprocess.run(command, shell=True)
 
     return None
 
