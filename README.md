@@ -1,3 +1,47 @@
-Пока что в разработке
+# Spoti
 
-still in development
+lib:
+
+- yt-dlp
+- selenium
+- requests
+- bs4
+- pyfiglet
+
+Other tools:
+
+- wget
+
+Cli-tool for download music from spotify
+
+## Pre-install
+
+Install `wget` from your package manager
+
+## Install
+
+clone this repository:
+
+```sh
+git clone https://github.com/ZeroNiki/Spoti.git
+```
+
+```sh
+cd Spoti
+```
+
+install requirements:
+
+```sh
+pip install -r requirements.txt
+```
+
+## Start
+
+in `src/.env` add full path to your music dir
+
+let's start:
+
+```sh
+python3 start.py
+```
