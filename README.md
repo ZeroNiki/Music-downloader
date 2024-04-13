@@ -30,6 +30,16 @@ git clone https://github.com/ZeroNiki/Spoti.git
 cd Spoti
 ```
 
+create virtual env:
+
+```sh
+python3 -m venv venv
+```
+
+```sh
+source venv/bin/activate
+```
+
 install requirements:
 
 ```sh
