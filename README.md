@@ -55,3 +55,16 @@ let's start:
 ```sh
 python3 start.py
 ```
+
+## Usage
+
+just copy link to track and paste:
+
+```
+Spotify link:
+<paste link here>
+```
+
+## Todo
+
+- [ ] Download all track from playlist
