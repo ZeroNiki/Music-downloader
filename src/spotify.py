@@ -15,9 +15,7 @@ tqdm_params = {
     "total": 3,
 }
 
-def get_spotify_track():
-    url = input("Spotify track link:\n")
-
+def get_spotify_track(url):
     with tqdm(**tqdm_params) as pb:
         # Get track name 
         driver.get(url)

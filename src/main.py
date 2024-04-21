@@ -1,3 +1,5 @@
+import argparse
+
 from src.dw import downlad_cover, download_music 
 from src.yt import yt_search
 from src.spotify import get_spotify_track
@@ -6,9 +8,17 @@ from src.mtd_mp3 import change_cover, change_metadata
 
 from src.config import FULL_DIR
 
+def parse_argument():
+    parse = argparse.ArgumentParser(description="Spoti")
+    parse.add_argument("url", help="Url from spotify track")
+    args = parse.parse_args()
+
+    return args
+
 
 def main():
-    result = get_spotify_track()
+    url = parse_argument()
+    result = get_spotify_track(url.url)
     author = result[0]
     clear_author = author.replace('&', '')
 

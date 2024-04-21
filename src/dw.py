@@ -2,6 +2,7 @@ import requests
 import subprocess
 import yt_dlp
 import os
+import wget
 
 from src.config import FULL_DIR
 
@@ -21,9 +22,7 @@ def download_music(link, author, track_name):
 
 
 def downlad_cover(author, track_name, full_path_to_music, url):
-    command = f'wget -O "{full_path_to_music}{author} {track_name}.jpg" {url}' 
-
-    subprocess.run(command, shell=True)
+    wget.download(url, out=f"{full_path_to_music}{author} {track_name}.jpg")
 
     return None
 

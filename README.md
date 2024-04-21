@@ -1,5 +1,14 @@
 # Spoti
 
+## Navigation
+
+- [About](https://github.com/ZeroNiki/Spoti?tab=readme-ov-file#About)
+- [Install](https://github.com/ZeroNiki/Spoti?tab=readme-ov-file#Install)
+- [Usage](https://github.com/ZeroNiki/Spoti?tab=readme-ov-file#Usage)
+- [Todo](https://github.com/ZeroNiki/Spoti?tab=readme-ov-file#Todo)
+
+## About
+
 lib:
 
 - yt-dlp
@@ -7,16 +16,9 @@ lib:
 - requests
 - bs4
 - pyfiglet
-
-Other tools:
-
 - wget
 
 Cli-tool for download music from spotify
-
-## Pre-install
-
-Install `wget` from your package manager
 
 ## Install
 
@@ -52,17 +54,18 @@ in `src/.env` add full path to your music dir
 
 let's start:
 
-```sh
-python3 start.py
-```
-
 ## Usage
 
-just copy link to track and paste:
+```sh
+python3 spoti [url]
+```
+
+or (if you're in linux)
 
 ```
-Spotify link:
-<paste link here>
+chmod +x spoti
+
+./spoti [url]
 ```
 
 ## Todo
