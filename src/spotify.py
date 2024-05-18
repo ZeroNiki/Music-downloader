@@ -20,13 +20,15 @@ def get_spotify_track(url):
         # Get track name 
         driver.get(url)
         span = driver.find_element(By.CLASS_NAME, "rEN7ncpaUeSGL9z0NGQR")
-        h1 = span.find_element(By.CSS_SELECTOR, "h1.Text__TextElement-sc-if376j-0.ksSRyh.encore-text-headline-large")
+        h1 = span.find_element(By.CSS_SELECTOR, "h1.encore-text.encore-text-headline-large.encore-internal-color-text-base")
         track_name = h1.text
         pb.update()
 
         #get author
-        div_name = driver.find_element(By.CSS_SELECTOR, "div.Type__TypeElement-sc-goli3j-0.gZImOH.t5WPFlGTY6GCd9UOFfLu")
-        author_name = div_name.text
+        author_div = driver.find_element(By.CSS_SELECTOR, "div.RANLXG3qKB61Bh33I0r2.NO_VO3MRVl9z3z56d8Lg")
+        span_name = author_div.find_element(By.CSS_SELECTOR, "span.encore-text.encore-text-body-small-bold")
+        name = span_name.find_element(By.TAG_NAME, "a")
+        author_name = name.text
         pb.update()
 
         #get album cover
