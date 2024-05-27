@@ -64,7 +64,15 @@ in 'src/spotify.py' add your selenium driver path:
 service = Service('/path/to/your/geckodriver') # default /usr/bin/geckodriver
 ```
 
-in `src/.env` add full path to your music dir
+in `src/.env` add full path to your music dir and api key from [Genius](https://docs.genius.com/)
+
+```
+FULL_DIR=/path/to/your/music_dir/
+
+YT_LINK=https://yt.artemislena.eu/search?q=
+
+GENIUS_API=your api from Genius
+```
 
 let's start:
 
