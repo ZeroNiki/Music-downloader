@@ -1,13 +1,15 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 
 from time import sleep
 from tqdm import tqdm
 
 firefox_options = Options()
 firefox_options.add_argument('--headless')
-driver = webdriver.Firefox(options=firefox_options)
+service = Service('/usr/bin/geckodriver')
+driver = webdriver.Firefox(options=firefox_options, service=service)
 
 tqdm_params = {
     "unit_scale": True,

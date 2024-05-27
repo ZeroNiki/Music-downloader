@@ -1,5 +1,6 @@
 import argparse
 
+from src.lyrics import get_lyric
 from src.dw import downlad_cover, download_music 
 from src.yt import yt_search
 from src.spotify import get_spotify_track
@@ -31,9 +32,12 @@ def main():
 
     link = yt_search(keyword)
 
+
     download_music(link, clear_author, track_name)
     downlad_cover(clear_author, track_name, FULL_DIR, cover_url)
 
-    change_metadata(f"{FULL_DIR}{file_name}", clear_author, track_name)
+    lyric = get_lyric(track_name, clear_author)
+
+    change_metadata(f"{FULL_DIR}{file_name}", clear_author, track_name, lyric)
     change_cover(f"{FULL_DIR}{file_name}", f"{FULL_DIR}{cover_name}")
 
