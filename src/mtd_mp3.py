@@ -22,16 +22,19 @@ def change_cover(audio, cover_path):
 
 def change_metadata(file_path, author, track_name, lyric):
     # Load the MP3 file
-    audio = EasyID3(file_path)
-    
-    # Change metadata
-    audio['artist'] = author
-    audio['title'] = track_name
-    audio.save()
+    try:
+        audio = EasyID3(file_path)
+        
+        # Change metadata
+        audio['artist'] = author
+        audio['title'] = track_name
+        audio.save()
 
-    audio = ID3(file_path)
-    audio.add(USLT(encoding=3, desc=u'', text=lyric))
-    
-    audio.save()
+        audio = ID3(file_path)
+        audio.add(USLT(encoding=3, desc=u'', text=lyric))
+        
+        audio.save()
 
-    os.remove('lyric.json')
+        os.remove('lyric.json')
+    except FileNotFoundError as fl:
+        print(f"Error: {fl}")
